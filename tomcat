@@ -1,0 +1,13 @@
+FROM adoptopenjdk:11-jre-hotspot
+
+MAINTAINER anu@gmail.com
+
+ENV CATALINA_HOME=/opt/app
+
+COPY install/ $CATALINA_HOME/
+
+RUN  chmod +x $CATALINA_HOME/bin/*.sh
+
+WORKDIR $CATALINA_HOME/bin
+
+CMD ["/bin/sh","catalina.sh","run"]
